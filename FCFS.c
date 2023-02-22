@@ -52,7 +52,7 @@ int main(){
         if(ct == temp1->arrival_time || ct>temp1->arrival_time){
             temp1->waiting_time = ct-temp1->arrival_time;
             ct+=temp1->cycle_burst;
-            temp1->tat = ct - temp1->arrival_time;
+            temp1->tat = temp1->waiting_time + temp1->cycle_burst;
             temp1 = temp1->next;
         }
         else{
