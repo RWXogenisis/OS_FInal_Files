@@ -15,13 +15,13 @@ struct proc* head = NULL;
 int quant = 1;
 
 void enqueue(struct proc* temp, int priority){
-    if (head == NULL || head->burst_time >priority){
+    if (head == NULL || head->remaining_time >priority){
         temp->next = head;
         head = temp;
     }
     else{
         struct proc* temp1 = head;
-        while(temp1->next!=NULL && temp1->next->burst_time<priority){
+        while(temp1->next!=NULL && temp1->next->remaining_time<priority){
             temp1=temp1->next;
         }
         temp->next = temp1->next;
